@@ -1,0 +1,16 @@
+{
+  "name": "sgz-randomizer",
+  "version": "1.0.0",
+  "description": "A web server that takes in randomizer flags and returns an .ips file.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Grant Morris",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2"
+  }
+}

@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Super Godzilla Randomizer - Landing Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="project-title"><strong>SUPER GODZILLA<br><span class="title-2nd-line">RANDOMIZER</span></strong></header>
+        <nav class="top-nav">
+            <ul>
+               <li class="left-bolt">:</li>
+               <a class="topnav-selectable topnav-selected" href="faq.html"><li>FAQ</li></a>
+               <a class="topnav-selectable" href="features.html"><li>Features</li></a>
+               <a class="topnav-selectable" href="randomizer.html"><li>Randomizer</li></a>
+               <li class="right-bolt">:</li>
+            </ul>
+        </nav> 
+
+        <section id="faq">
+            <div class="qna">
+                <p class="question">
+                    The randomizer failed and told me I have the incorrect version!
+                </p>
+                <p class="answer">
+                    Make sure you're using a known good dump of the US version of the game - I'm checking the hash of the ROM you select against what (as far as I know) is an an accurate image. If you're sure your file is correct, get in touch with me through <a href="https://github.com/grantmor/sgz-tools">Github</a> and I'll investigate the issue. I personally own three copies of the US version of the game but need to find my cartridge dumping adaptors, so it's possible I could have made a mistake.
+                </p>
+            </div>
+
+            <div class="qna">
+                <p class="question">
+                    My Energy starts at 247 instead of 600!
+                </p>
+                <p class="answer">
+                    This is a known bug with a simple fix - reset the game and select "GAME START" from the menu before the story/demo sequence has a chance to start. Your energy should now initialize to the correct value. The issue is caused by the demo scene using some of the same memory addresses that are used to initialize your energy at the start of the game - a solution is in the works, but it involves modifying and patching hand-written 6502 family machine code, which is time consuming and error-prone, so care needs to be taken to ensure a robust and bug free solution is developed before commiting to a proper fix.
+                </p>
+            </div>
+
+            <div class="qna">
+                <p class="question">
+                    The Mothership is in the same location as in the original game!
+                </p>
+                <p class="answer">
+                    This is the only major feature I was unable to implement in the time I had available to hack the game over Christmas. The Mothership events seem to be hard-coded in a manner different from any other events in the game, making the code governing them difficult to locate. This is at the top of my list of priorities after bugfixes once I get some free time to debug further. If you have experience hacking SNES games and some free time to look into this please get in touch with me on <a href="https://github.com/grantmor/sgz-tools">Github</a>!
+                </p>
+            </div>
+            <div class="qna">
+                <p class="question">
+                    Can you implement X feature?
+                </p>
+                <p class="answer">
+                    My focus for now is implementing support for the Japanese versions of the game and bugfixing existing features. Debugging ROMs is extremely time consuming and I need to focus on other projects for the time being. All code for this randomizer is open source - feel free to jump in and help out: <a href="https://github.com/grantmor/sgz-tools">PRs are welcome</a>!
+                </p>
+            </div>
+        </section>
+
+        <footer>
+           <p>GODZILLA and its related characters property of TOHO CO., LTD.</p>
+           <p>I do not distrubute copyrighted material, including images (ROMs) of proprietary software, including Super Nintendo or Super Famicom games. Do not ask.</p>
+           <p>MIT licensed source code for this randomizer is available <a href="https://github.com/grantmor/sgz-tools">here</a>.</p>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.0/spark-md5.min.js"></script>
+        <script src="randomize.js"></script>
+    </body>
+</html>

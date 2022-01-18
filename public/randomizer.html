@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Super Godzilla Randomizer - Landing Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="project-title"><strong>SUPER GODZILLA<br><span class="title-2nd-line">RANDOMIZER</span></strong></header>
+        <nav class="top-nav">
+            <ul>
+               <li class="left-bolt">:</li>
+               <a class="topnav-selectable" href="faq.html"><li>FAQ</li></a>
+               <a class="topnav-selectable" href="features.html"><li>Features</li></a>
+               <a class="topnav-selectable topnav-selected" href="randomizer.html"><li>Randomizer</li></a>
+               <li class="right-bolt">:</li>
+            </ul>
+        </nav> 
+
+        <section class="select-rom">
+            <h2 id=rom-status-text>Click button below to select US v1.1 ROM</h2>
+            <label id="rom-select-btn" > Select ROM
+                <input id="rom-file-input" type="file" accept=".sfc,.smc" name="rom" style="display:none;">
+            </label>
+        </section>
+
+        <section id="randomizer-options-container" class="hidden">
+            <h2>Randomizer Settings</h2>
+            <form id="randomizer-options" action="">
+                <label for="timeLimit">Time Limit : </label>
+                <input type="text" name=timeLimit value=768>
+                <br>
+                <br>
+
+                <label for="persistentTime">Persistent Time : </label>
+                <input type="checkbox" checked id="persistentTime" name="persistentTime">
+                <br>
+
+                <label for="persistentEnergy">Persistent Energy : </label>
+                <input type="checkbox" checked id="persistentEnergy" name="persistentEnergy">
+                <br>
+
+                <label for="noStartingContinues">No Starting Continues : </label>
+                <input type="checkbox" checked id="noStartingContinues" name="noStartingContinues">
+                <br>
+
+                <label for="noAddedContinues">No Added Continues : </label>
+                <input type="checkbox" checked id="noAddedContinues" name="noAddedContinues">
+                <br>
+
+                <label for="randomizeMaps">Randomize Maps : </label>
+                <input type="checkbox" checked id="randomizeMaps" name="randomizeMaps">
+                <br>
+            </form>
+        </section>  
+
+        <div id="randomize-btn" class="hidden">
+            <h3>Randomize!</h3>
+        </div>
+
+        <footer>
+           <p>GODZILLA and its related characters property of TOHO CO., LTD.</p>
+           <p>I do not distrubute copyrighted material, including images (ROMs) of proprietary software, including Super Nintendo or Super Famicom games. Do not ask.</p>
+           <p>MIT licensed source code for this randomizer is available <a href="https://github.com/grantmor/sgz-tools">here</a>.</p>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/spark-md5/3.0.0/spark-md5.min.js"></script>
+        <script src="randomize.js"></script>
+    </body>
+</html>
