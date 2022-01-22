@@ -2,10 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const bp = require('body-parser')
 const app = express();
+const path = require('path')
 
 const port = process.env.port || 3000;
-const publicRoot = '/home/grant/Code/WebDev/sgz-randomizer/public'
-
 
 /* Middleware */
 app.use(cors())
@@ -25,7 +24,7 @@ app.use(express.static("public", expStaticOptions))
 
 
 app.get('/', (req, res) => {
-    res.sendFile('features.html', {root: publicRoot}) 
+    res.sendFile(path.join('./', 'public', 'features.html'))
 })
 
 
@@ -45,7 +44,7 @@ app.post('/randomize', (req, res) => {
 
     // Call Randomizer
     const { spawn } = require('child_process')
-    const randomizer = spawn('python', args)
+    const randomizer = spawn('python3', args)
 
     randomizer.stdout.on('data', function(ipsBlob) {
         res.send(JSON.stringify({"data": ipsBlob}))

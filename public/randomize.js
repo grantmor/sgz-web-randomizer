@@ -155,7 +155,7 @@ randomizeBtn.addEventListener('click', () => {
     console.log(JSON.stringify(randomizerOptions))
 
     /* Send randomizer options to the server */
-    fetch('http://127.0.0.1:3000/randomize',
+    fetch('https://sgzr.space/randomize',
     {   
         method: 'POST',
         headers: {
