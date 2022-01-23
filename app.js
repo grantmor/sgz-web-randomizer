@@ -24,7 +24,7 @@ app.use(express.static("public", expStaticOptions))
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join('./', 'public', 'features.html'))
+    res.sendFile(path.join(process.cwd(), 'public', 'features.html'))
 })
 
 
@@ -46,7 +46,7 @@ app.post('/randomize', (req, res) => {
     const { spawn } = require('child_process')
     const randomizer = spawn('python3', args)
 
-    randomizer.stdout.on('data', function(ipsBlob) {
+    randomizer.stdout.on('data', (ipsBlob) => {
         res.send(JSON.stringify({"data": ipsBlob}))
     })
 
