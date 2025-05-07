@@ -137,6 +137,7 @@ randomizeBtn.addEventListener('click', () => {
         tl: 768,
         pt: false,
         pe: false,
+        pi: false,
         nsc: false,
         nac: false,
         rm: false
@@ -147,6 +148,7 @@ randomizeBtn.addEventListener('click', () => {
     if (formData.timeLimit) randomizerOptions.tl = parseInt(formData.timeLimit)
     if (formData.persistentTime) randomizerOptions.pt = true
     if (formData.persistentEnergy) randomizerOptions.pe = true
+    if (formData.persistentInventory) randomizerOptions.pi = true
     if (formData.noStartingContinues) randomizerOptions.nsc = true
     if (formData.noAddedContinues) randomizerOptions.nac = true
     if (formData.randomizeMaps) randomizerOptions.rm = true
@@ -155,14 +157,15 @@ randomizeBtn.addEventListener('click', () => {
     console.log(JSON.stringify(randomizerOptions))
 
     /* Send randomizer options to the server */
-    fetch('https://sgzr.space/randomize',
+    //fetch('https://sgzr.space/randomize',
+    // fetch('http://localhost:3000/randomize',
+    fetch('/randomize',
     {   
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json'
+            //'Access-Control-Allow-Origin': '*'
         },
-
         body: JSON.stringify(randomizerOptions),
     })
     .then(res => res.json())

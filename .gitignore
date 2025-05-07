@@ -3,6 +3,10 @@
 *.smc
 *.sfc
 /sgz-tools
+*.notes
+
+# node stuff
+*.json
 
 # Logs
 logs
