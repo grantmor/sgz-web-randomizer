@@ -3,6 +3,7 @@ const cors = require('cors')
 const bp = require('body-parser')
 const app = express();
 const path = require('path')
+const fs = require('fs')
 
 const port = process.env.port || 3000;
 
@@ -27,6 +28,26 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(process.cwd(), 'public', 'features.html'))
 })
 
+
+app.get('/news', (req, res) =>{
+    var newsPage = fs.readFileSync('./public/news-header.html')
+    const fileObjs = fs.readdirSync('./public/articles')
+
+    const articleList = []
+
+    fileObjs.forEach((file) =>
+    {
+        articleList.push(file)   
+    })
+
+    while (articleList.length > 0)
+    {
+        newsPage = newsPage + fs.readFileSync(path.join(process.cwd(), 'public', 'articles', articleList.pop()))
+    }
+
+    newsPage = newsPage + fs.readFileSync('./public/news-footer.html')
+    res.send(newsPage)
+})
 
 app.post('/randomize', (req, res) => {
     console.log(req.body)
