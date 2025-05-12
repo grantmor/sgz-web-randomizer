@@ -157,8 +157,6 @@ randomizeBtn.addEventListener('click', () => {
     console.log(JSON.stringify(randomizerOptions))
 
     /* Send randomizer options to the server */
-    //fetch('https://sgzr.space/randomize',
-    // fetch('http://localhost:3000/randomize',
     fetch('/randomize',
     {   
         method: 'POST',
@@ -173,10 +171,9 @@ randomizeBtn.addEventListener('click', () => {
         ipsData = obj.data.data 
 
         /* Patch ROM */
-        //console.log(ipsData)
         let patchedRomData = patchRom(romData, ipsData)
 
-        const patchedRomBlob = new Blob([patchedRomData], {type:'application/octet-stream'}) // patchedRomData
+        const patchedRomBlob = new Blob([patchedRomData], {type:'application/octet-stream'})
 
         console.log("Blob created")
 
